@@ -117,14 +117,13 @@ $("dpI").onchange=()=>{let m="";
 
 function note(t,warn){$("note").innerHTML=t?`<div class="msg${warn?" w2":""}">${t}</div>`:""}
 
-const SHEET_URL="https://script.google.com/macros/s/AKfycbzDmX_h1Ta9KU3p2Zcac8DhysI7YSp55h7w12R93X5o608nAszF1gyxXmK_nJOeXNMp/exec"; // <- Google Apps Script web app URL (see setup steps)
+const SHEET_URL="https://script.google.com/macros/s/AKfycbzDmX_h1Ta9KU3p2Zcac8DhysI7YSp55h7w12R93X5o608nAszF1gyxXmK_nJOeXNMp/exec"; // Google Apps Script web app URL
 let last={key:"",ref:""};
 $("sub").onclick=async()=>{
   const nm=$("nmI").value.trim(),dp=$("dpI").value,dt=$("dtI").value;
   if(!nm||!dp||!dt)return $("er").textContent="Please fill in your name, department and date.";
   if(!cart.length)return $("er").textContent="Please add at least one item.";
   if(cart.some(x=>x.q<1))return $("er").textContent="Every item needs a quantity of at least 1.";
-  if(SHEET_URL.startsWith("PASTE"))return $("er").textContent="This form isn’t connected to a Google Sheet yet (SHEET_URL is not set).";
   $("er").textContent="";
   const rec={name:nm,dept:dp,needBy:dt,priority:$("prI").value,notes:$("ntI").value.trim(),items:cart.map(x=>({code:x.c,name:x.n,qty:x.q,unit:x.u}))};
   const key=JSON.stringify(rec);
