@@ -117,7 +117,7 @@ $("dpI").onchange=()=>{let m="";
 
 function note(t,warn){$("note").innerHTML=t?`<div class="msg${warn?" w2":""}">${t}</div>`:""}
 
-const SHEET_URL="https://docs.google.com/spreadsheets/d/1y9XK-ca3scH4K_xndqcTlTGnIOPS3pgh18mI6hNwyMo/edit?usp=sharing"; // <- Google Apps Script web app URL (see setup steps)
+const SHEET_URL="https://script.google.com/macros/s/AKfycbzDmX_h1Ta9KU3p2Zcac8DhysI7YSp55h7w12R93X5o608nAszF1gyxXmK_nJOeXNMp/exec"; // <- Google Apps Script web app URL (see setup steps)
 let last={key:"",ref:""};
 $("sub").onclick=async()=>{
   const nm=$("nmI").value.trim(),dp=$("dpI").value,dt=$("dtI").value;
